@@ -29,6 +29,8 @@ golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898/go.mod h1:I/5z698sn9Ka8T
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/go-playground/assert.v1 v1.2.1/go.mod h1:9RXL0bg/zibRAgZUYszZSwO/z8Y/a8bDuhia5mkpMnE=
 gopkg.in/go-playground/validator.v9 v9.30.0/go.mod h1:+c9/zcJMFNgbLvly1L1V+PpxWdVbfP1avr/N00E2vyQ=
+gopkg.in/tucnak/telebot.v2 v2.3.5 h1:TdMJTlG8kvepsvZdy/gPeYEBdwKdwFFjH1AQTua9BOU=
+gopkg.in/tucnak/telebot.v2 v2.3.5/go.mod h1:BgaIIx50PSRS9pG59JH+geT82cfvoJU/IaI5TJdN3v8=
 gopkg.in/tucnak/telebot.v3 v3.0.0-20201121142328-9ecc5248c623 h1:mVQCsf4Orly18tTYA0B4PfL454+fSDPJ+mRcSi04c/I=
 gopkg.in/tucnak/telebot.v3 v3.0.0-20201121142328-9ecc5248c623/go.mod h1:rQkLEeZ6z+UenbjlO1GjW24ZIZ6yJWqv92jcXpGpiR8=
 gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

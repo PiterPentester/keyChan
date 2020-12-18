@@ -29,9 +29,28 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// Reply to "/start" command
+	b.Handle("/start", func(m *tb.Message) {
+		b.Send(m.Sender, "Usage:")
+		b.Send(m.Sender, "/memp - generate memorable password")
+		b.Send(m.Sender, "/abrp - generate abracadabra password")
+		b.Send(m.Sender, "/hello - return 'Hi!'")
+	})
+
 	// Reply to "/hello" command
 	b.Handle("/hello", func(m *tb.Message) {
 		b.Send(m.Sender, "Hi!")
+	})
+
+	// Reply to "/memp" command
+	b.Handle("/memp", func(m *tb.Message) {
+		b.Send(m.Sender, "Just handler to /memp command")
+	})
+
+	// Reply to "/abrp" command
+	b.Handle("/abrp", func(m *tb.Message) {
+		b.Send(m.Sender, "Just handler to /abrp command")
 	})
 
 	b.Start()
