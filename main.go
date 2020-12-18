@@ -4,7 +4,7 @@ import (
   "log"
 	"os"
 
-	tb "gopkg.in/tucnak/telebot.v3"
+	tb "gopkg.in/tucnak/telebot.v2"
 )
 
 func main() {
