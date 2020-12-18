@@ -1,35 +1,39 @@
 package main
 
 import (
-	"time"
   "log"
 	"os"
 
-	"github.com/joho/godotenv"
-	tele "gopkg.in/tucnak/telebot.v3"
+	tb "gopkg.in/tucnak/telebot.v3"
 )
 
 func main() {
 	// Load env variables
-	e := godotenv.Load()
-	if e != nil {
-		log.Println(e)
-	}
-	// Get token from env
-	token := os.Getenv("TELEGRAM_TOKEN")
-	// Init bot settings
-	b, err := tele.NewBot(tele.Settings{
-		Token: token,
-		Poller: &tele.LongPoller{Timeout: 10 * time.Second},
-	})
-	if err != nil {
-		log.Println(err)
-		return
-	}
-	// Hanle "/start" command
-	b.Handle("/start", func (c tele.Context) error {
-	  return c.Reply("Hello!")
+	var (
+		port      = os.Getenv("PORT")
+    publicURL = os.Getenv("PUBLIC_URL") // you must add it to your config vars
+    token     = os.Getenv("TELEGRAM_TOKEN")      // you must add it to your config vars
+  )
+  // Set webhook
+	webhook := &tb.Webhook{
+		Listen:   ":" + port,
+		Endpoint: &tb.WebhookEndpoint{PublicURL: publicURL},
+  }
+  // Init settings
+  pref := tb.Settings{
+    Token:  token,
+    Poller: webhook,
+  }
+  // Init new bot
+  b, err := tb.NewBot(pref)
+  if err != nil {
+      log.Fatal(err)
+  }
+  // Reply to "/hello" command
+	b.Handle("/hello", func(c tb.Context) error {
+    return c.Reply(c.Sender, "Hi!")
   })
-  // Start bot
+
 	b.Start()
+
 }
