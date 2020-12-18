@@ -30,9 +30,10 @@ func main() {
       log.Fatal(err)
   }
   // Reply to "/hello" command
-	b.Handle("/hello", func(c tb.Context) error {
-    return c.Reply(c.Sender, "Hi!")
+	b.Handle("/hello", func(m *tb.Message) {
+    b.Send(m.Sender, "Hi!")
   })
+
 
 	b.Start()
 
