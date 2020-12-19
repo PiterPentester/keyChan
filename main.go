@@ -1,7 +1,7 @@
 package main
 
 import (
-  "log"
+	"log"
 	"os"
 
 	tb "gopkg.in/tucnak/telebot.v2"
@@ -11,10 +11,10 @@ func main() {
 	// Load env variables
 	var (
 		port      = os.Getenv("PORT")
-    publicURL = os.Getenv("PUBLIC_URL") // you must add it to your config vars
-    token     = os.Getenv("TELEGRAM_TOKEN")      // you must add it to your config vars
-  )
-  // Set webhook
+		publicURL = os.Getenv("PUBLIC_URL")     // you must add it to your config vars
+		token     = os.Getenv("TELEGRAM_TOKEN") // you must add it to your config vars
+	)
+	// Set webhook
 	webhook := &tb.Webhook{
 		Listen:   ":" + port,
 		Endpoint: &tb.WebhookEndpoint{PublicURL: publicURL},
