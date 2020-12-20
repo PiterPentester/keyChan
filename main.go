@@ -37,7 +37,6 @@ func main() {
 		b.Send(m.Sender, "/abrp - generate abracadabra password")
 		b.Send(m.Sender, "/hello - return 'Hi!'")
 	})
-
 	// Reply to "/hello" command
 	b.Handle("/hello", func(m *tb.Message) {
 		b.Send(m.Sender, "Hi!")
