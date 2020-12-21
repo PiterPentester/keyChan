@@ -18,7 +18,6 @@ func main() {
 	webhook := &tb.Webhook{
 		Listen:   ":" + port,
 		Endpoint: &tb.WebhookEndpoint{PublicURL: publicURL},
-<<<<<<< HEAD
 	}
 	// Init settings
 	pref := tb.Settings{
@@ -37,29 +36,12 @@ func main() {
 		b.Send(m.Sender, "/memp - generate memorable password")
 		b.Send(m.Sender, "/abrp - generate abracadabra password")
 		b.Send(m.Sender, "/hello - return 'Hi!'")
-		b.Send(m.Sender, "/test - test new feature")
 	})
-
 	// Reply to "/hello" command
-=======
-  }
-  // Init settings
-  pref := tb.Settings{
-    Token:  token,
-    Poller: webhook,
-  }
-  // Init new bot
-  b, err := tb.NewBot(pref)
-  if err != nil {
-      log.Fatal(err)
-  }
-  // Reply to "/hello" command
->>>>>>> parent of 3dadbee (add new handlers, test pipeline on heroku)
 	b.Handle("/hello", func(m *tb.Message) {
 		b.Send(m.Sender, "Hi!")
 	})
 
-<<<<<<< HEAD
 	// Reply to "/memp" command
 	b.Handle("/memp", func(m *tb.Message) {
 		b.Send(m.Sender, "Just handler to /memp command")
@@ -69,13 +51,6 @@ func main() {
 	b.Handle("/abrp", func(m *tb.Message) {
 		b.Send(m.Sender, "Just handler to /abrp command")
 	})
-
-	// Reply to "/abrp" command
-	b.Handle("/test", func(m *tb.Message) {
-		b.Send(m.Sender, "Just handler to /test command")
-	})
-=======
->>>>>>> parent of 3dadbee (add new handlers, test pipeline on heroku)
 
 	b.Start()
 
