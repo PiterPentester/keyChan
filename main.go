@@ -18,6 +18,7 @@ func main() {
 	webhook := &tb.Webhook{
 		Listen:   ":" + port,
 		Endpoint: &tb.WebhookEndpoint{PublicURL: publicURL},
+<<<<<<< HEAD
 	}
 	// Init settings
 	pref := tb.Settings{
@@ -40,10 +41,25 @@ func main() {
 	})
 
 	// Reply to "/hello" command
+=======
+  }
+  // Init settings
+  pref := tb.Settings{
+    Token:  token,
+    Poller: webhook,
+  }
+  // Init new bot
+  b, err := tb.NewBot(pref)
+  if err != nil {
+      log.Fatal(err)
+  }
+  // Reply to "/hello" command
+>>>>>>> parent of 3dadbee (add new handlers, test pipeline on heroku)
 	b.Handle("/hello", func(m *tb.Message) {
 		b.Send(m.Sender, "Hi!")
 	})
 
+<<<<<<< HEAD
 	// Reply to "/memp" command
 	b.Handle("/memp", func(m *tb.Message) {
 		b.Send(m.Sender, "Just handler to /memp command")
@@ -58,6 +74,8 @@ func main() {
 	b.Handle("/test", func(m *tb.Message) {
 		b.Send(m.Sender, "Just handler to /test command")
 	})
+=======
+>>>>>>> parent of 3dadbee (add new handlers, test pipeline on heroku)
 
 	b.Start()
 
