@@ -44,12 +44,17 @@ func main() {
 
 	// Reply to "/memp" command
 	b.Handle("/memp", func(m *tb.Message) {
-		b.Send(m.Sender, "Just handler to /memp command")
+		// get words
+		wrds, _ := GetRandWords(4)
+		// generating memorable password
+		b.Send(m.Sender, "Memorable password:")
+		b.Send(m.Sender, GenMemorablePass(wrds))
 	})
 
 	// Reply to "/abrp" command
 	b.Handle("/abrp", func(m *tb.Message) {
-		b.Send(m.Sender, "Just handler to /abrp command")
+		b.Send(m.Sender, "Abracadabra pass:")
+		b.Send(m.Sender, String(20))
 	})
 
 	b.Start()
