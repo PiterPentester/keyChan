@@ -47,10 +47,7 @@ func main() {
 
 	// Reply to "/start" command
 	b.Handle("/start", func(m *tb.Message) {
-		b.Send(m.Sender, "Usage:")
-		b.Send(m.Sender, "/memp - generate memorable password")
-		b.Send(m.Sender, "/abrp - generate abracadabra password")
-		b.Send(m.Sender, "/ - return 'Hi!'")
+		b.Send(m.Sender, "Hello!", menu)
 	})
 	// Reply to "/hello" command
 	b.Handle(&btnHello, func(m *tb.Message) {
